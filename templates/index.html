@@ -27,12 +27,37 @@
         <!-- بخش اصلی صفحه با کلاس container -->
         <div class="input-container">
           <!-- بخش ورودی برای افزودن کارهای جدید -->
-          <input type="text" id="todoInput" placeholder="Add a new todo" />
-          <!-- فیلد ورودی متنی برای نوشتن کار جدید -->
-          <button id="addBtn">Add</button>
-          <!-- دکمه برای افزودن کار جدید -->
+          <form action="{{ url_for('add') }}" method="POST">
+            <input
+              type="text"
+              name="title"
+              placeholder="Add a new todo"
+              required
+            />
+            <button type="submit">Add</button>
+          </form>
         </div>
-        <ul id="todoList"></ul>
+        <ul id="todoList">
+          {% for todo in todo_list %}
+          <li>
+            <span {% if todo.complete %}class="completed" {% endif %}
+              >{{ todo.title }}</span
+            >
+            <div class="actions">
+              <a
+                href="{{ url_for('update', todo_id=todo.id) }}"
+                class="update-btn"
+                >✓</a
+              >
+              <a
+                href="{{ url_for('delete', todo_id=todo.id) }}"
+                class="delete-btn"
+                >×</a
+              >
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
         <!-- لیست بدون ترتیب برای نمایش کارهای فعال -->
       </main>
       <!-- کلاس "deleted-tasks" به نوار کناری UL اضافه شده تا متن آن بتواند استایل‌دهی شود -->
