@@ -27,7 +27,7 @@
         <!-- بخش اصلی صفحه با کلاس container -->
         <div class="input-container">
           <!-- بخش ورودی برای افزودن کارهای جدید -->
-          <form action="{{ url_for('add') }}" method="POST">
+          <form>
             <input
               type="text"
               name="title"
@@ -38,25 +38,7 @@
           </form>
         </div>
         <ul id="todoList">
-          {% for todo in todo_list %}
-          <li>
-            <span {% if todo.complete %}class="completed" {% endif %}
-              >{{ todo.title }}</span
-            >
-            <div class="actions">
-              <a
-                href="{{ url_for('update', todo_id=todo.id) }}"
-                class="update-btn"
-                >✓</a
-              >
-              <a
-                href="{{ url_for('delete', todo_id=todo.id) }}"
-                class="delete-btn"
-                >×</a
-              >
-            </div>
-          </li>
-          {% endfor %}
+          <!-- Tasks will be populated by JavaScript -->
         </ul>
         <!-- لیست بدون ترتیب برای نمایش کارهای فعال -->
       </main>
@@ -65,7 +47,9 @@
         <!-- بخش نوار کناری برای نمایش کارهای حذف شده -->
         <h2>Deleted Tasks</h2>
         <!-- عنوان بخش کارهای حذف شده -->
-        <ul id="deletedList" class="deleted-tasks"></ul>
+        <ul id="deletedList" class="deleted-tasks">
+          <!-- Deleted tasks will be populated by JavaScript -->
+        </ul>
         <!-- لیست بدون ترتیب برای نمایش کارهای حذف شده -->
       </aside>
     </div>

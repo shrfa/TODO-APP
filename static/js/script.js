@@ -62,10 +62,10 @@ function updateTodo(id, completed) {
     .then(data => {
         if (data.status === 'success') {
             updateTodoLists();
-        }
-    });
-}
-
+          }
+        });
+    }
+  
 // Function to delete todo
 function deleteTodo(id) {
     fetch('/delete', {
@@ -79,10 +79,10 @@ function deleteTodo(id) {
     .then(data => {
         if (data.status === 'success') {
             updateTodoLists();
-        }
-    });
-}
-
+          }
+        });
+    }
+  
 // Function to restore todo
 function restoreTodo(id) {
     fetch('/restore', {
@@ -96,10 +96,10 @@ function restoreTodo(id) {
     .then(data => {
         if (data.status === 'success') {
             updateTodoLists();
-        }
-    });
-}
-
+          }
+        });
+    }
+  
 // Initial load of todo lists
 document.addEventListener('DOMContentLoaded', updateTodoLists);
   
