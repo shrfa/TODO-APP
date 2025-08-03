@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- تعریف نوع سند به عنوان HTML5 -->
+<html lang="en">
+  <!-- عنصر ریشه HTML با زبان انگلیسی -->
+  <head>
+    <!-- بخش سر صفحه برای متادیتا و لینک‌ها -->
+    <meta charset="UTF-8" />
+    <!-- تنظیم کدگذاری کاراکترها به UTF-8 -->
+    <title>Todo List App</title>
+    <!-- عنوان صفحه که در تب مرورگر نمایش داده می‌شود -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <!-- لینک به فایل CSS با استفاده از تابع url_for فلسک -->
+  </head>
+  <body>
+    <!-- بدنه اصلی صفحه که محتوای قابل مشاهده را در بر می‌گیرد -->
+    <header>
+      <!-- بخش سربرگ صفحه -->
+      <h1>Todo List Application</h1>
+      <!-- عنوان اصلی برنامه -->
+    </header>
+    <div class="wrapper">
+      <!-- یک عنصر پوشش‌دهنده برای محتوای اصلی و نوار کناری -->
+      <main class="container">
+        <!-- بخش اصلی صفحه با کلاس container -->
+        <div class="input-container">
+          <!-- بخش ورودی برای افزودن کارهای جدید -->
+          <input type="text" id="todoInput" placeholder="Add a new todo" />
+          <!-- فیلد ورودی متنی برای نوشتن کار جدید -->
+          <button id="addBtn">Add</button>
+          <!-- دکمه برای افزودن کار جدید -->
+        </div>
+        <ul id="todoList"></ul>
+        <!-- لیست بدون ترتیب برای نمایش کارهای فعال -->
+      </main>
+      <!-- کلاس "deleted-tasks" به نوار کناری UL اضافه شده تا متن آن بتواند استایل‌دهی شود -->
+      <aside class="sidebar">
+        <!-- بخش نوار کناری برای نمایش کارهای حذف شده -->
+        <h2>Deleted Tasks</h2>
+        <!-- عنوان بخش کارهای حذف شده -->
+        <ul id="deletedList" class="deleted-tasks"></ul>
+        <!-- لیست بدون ترتیب برای نمایش کارهای حذف شده -->
+      </aside>
+    </div>
+    <footer>
+      <!-- بخش پاورقی صفحه -->
+      <p>&copy; 2025 Todo List App. All rights reserved.</p>
+      <!-- متن کپی‌رایت با نماد حق نشر -->
+    </footer>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <!-- لینک به فایل جاوااسکریپت با استفاده از تابع url_for فلسک -->
+  </body>
+</html>
